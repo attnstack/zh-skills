@@ -1,0 +1,67 @@
+{"query": "帮我检查这篇文章的排版", "expect": ["zh-typography"], "kind": "direct"}
+{"query": "把这段文字的全角半角统一一下", "expect": ["zh-typography"], "kind": "direct"}
+{"query": "中英文之间要加空格，帮我处理一下这篇文档", "expect": ["zh-typography"], "kind": "indirect"}
+{"query": "校对一下这篇文档的标点符号", "expect": ["zh-typography"], "kind": "indirect"}
+{"query": "帮我写 commit message", "expect": ["zh-commit-message"], "kind": "direct"}
+{"query": "这次改动该用什么提交信息", "expect": ["zh-commit-message"], "kind": "direct"}
+{"query": "把暂存区的改动写个规范的提交说明", "expect": ["zh-commit-message"], "kind": "indirect"}
+{"query": "git 提交信息不知道怎么起", "expect": ["zh-commit-message"], "kind": "indirect"}
+{"query": "帮我写 PR 描述", "expect": ["zh-pr-description"], "kind": "direct"}
+{"query": "这个 MR 的说明文档帮我生成一下", "expect": ["zh-pr-description"], "kind": "indirect"}
+{"query": "pull request 的描述怎么写", "expect": ["zh-pr-description"], "kind": "indirect"}
+{"query": "给这次代码变更写个合并请求说明", "expect": ["zh-pr-description"], "kind": "indirect"}
+{"query": "帮我写一个技术方案", "expect": ["zh-tech-writing"], "kind": "direct"}
+{"query": "这个功能的设计文档怎么组织", "expect": ["zh-tech-writing"], "kind": "indirect"}
+{"query": "帮我起草一份架构文档", "expect": ["zh-tech-writing"], "kind": "direct"}
+{"query": "写一份方案评审材料", "expect": ["zh-tech-writing"], "kind": "indirect"}
+{"query": "帮我给这个项目写 README", "expect": ["zh-readme-gen"], "kind": "direct"}
+{"query": "生成仓库主页文档", "expect": ["zh-readme-gen"], "kind": "indirect"}
+{"query": "开源项目的介绍页要怎么写", "expect": ["zh-readme-gen"], "kind": "indirect"}
+{"query": "README 里补一个快速上手脚本", "expect": ["zh-readme-gen"], "kind": "direct"}
+{"query": "帮我把这个 OpenAPI 转成中文接口文档", "expect": ["zh-api-doc"], "kind": "direct"}
+{"query": "补全这个接口的字段说明", "expect": ["zh-api-doc"], "kind": "indirect"}
+{"query": "生成 API 文档", "expect": ["zh-api-doc"], "kind": "direct"}
+{"query": "写一下这两个接口的入参出参说明", "expect": ["zh-api-doc"], "kind": "indirect"}
+{"query": "这条 SQL 很慢，帮我优化", "expect": ["zh-sql-optimization"], "kind": "direct"}
+{"query": "EXPLAIN 结果里 type=ALL 怎么办", "expect": ["zh-sql-optimization"], "kind": "indirect"}
+{"query": "帮我看看这条查询要不要加索引", "expect": ["zh-sql-optimization"], "kind": "indirect"}
+{"query": "分析一下慢查询", "expect": ["zh-sql-optimization"], "kind": "direct"}
+{"query": "帮我 review 一下这个 diff", "expect": ["zh-code-review"], "kind": "direct"}
+{"query": "这段代码有什么问题", "expect": ["zh-code-review"], "kind": "indirect"}
+{"query": "评审一下这个 MR 的代码", "expect": ["zh-code-review"], "kind": "direct"}
+{"query": "看看这次改动有没有安全隐患", "expect": ["zh-code-review"], "kind": "indirect"}
+{"query": "帮这个函数写测试用例", "expect": ["zh-test-case-gen"], "kind": "direct"}
+{"query": "单测要覆盖哪些边界条件", "expect": ["zh-test-case-gen"], "kind": "indirect"}
+{"query": "生成一份测试用例表", "expect": ["zh-test-case-gen"], "kind": "direct"}
+{"query": "这个接口的异常输入怎么测", "expect": ["zh-test-case-gen"], "kind": "indirect"}
+{"query": "线上报错了，帮我看看日志", "expect": ["zh-log-analysis"], "kind": "direct"}
+{"query": "这个堆栈是什么问题", "expect": ["zh-log-analysis"], "kind": "indirect"}
+{"query": "服务突然开始 500，帮我排查异常", "expect": ["zh-log-analysis"], "kind": "indirect"}
+{"query": "分析一下这段错误日志", "expect": ["zh-log-analysis"], "kind": "direct"}
+{"query": "帮我写本周周报", "expect": ["zh-weekly-report"], "kind": "direct"}
+{"query": "周五了，写个工作总结", "expect": ["zh-weekly-report"], "kind": "indirect"}
+{"query": "把这个月的工作汇报整理一下", "expect": ["zh-weekly-report"], "kind": "indirect"}
+{"query": "生成周报", "expect": ["zh-weekly-report"], "kind": "direct"}
+{"query": "帮我把这个 PRD 拆成任务", "expect": ["zh-requirement-breakdown"], "kind": "direct"}
+{"query": "这个需求要排期，帮我拆解一下", "expect": ["zh-requirement-breakdown"], "kind": "indirect"}
+{"query": "评估一下这个功能的工作量", "expect": ["zh-requirement-breakdown"], "kind": "indirect"}
+{"query": "需求拆解成开发任务清单", "expect": ["zh-requirement-breakdown"], "kind": "direct"}
+{"query": "今天天气怎么样", "expect": [], "kind": "negative"}
+{"query": "推荐几部好看的科幻电影", "expect": [], "kind": "negative"}
+{"query": "红烧肉怎么做", "expect": [], "kind": "negative"}
+{"query": "明天北京的天气", "expect": [], "kind": "negative"}
+{"query": "帮我订一张去上海的机票", "expect": [], "kind": "negative"}
+{"query": "周杰伦的新专辑好听吗", "expect": [], "kind": "negative"}
+{"query": "写一首关于秋天的诗", "expect": [], "kind": "negative"}
+{"query": "把这段话翻译成英文", "expect": [], "kind": "negative"}
+{"query": "讲个笑话", "expect": [], "kind": "negative"}
+{"query": "附近有什么好吃的餐厅", "expect": [], "kind": "negative"}
+{"query": "如何提高英语口语", "expect": [], "kind": "negative"}
+{"query": "自驾游路线推荐", "expect": [], "kind": "negative"}
+{"query": "手机耗电快怎么办", "expect": [], "kind": "negative"}
+{"query": "游戏上分技巧", "expect": [], "kind": "negative"}
+{"query": "2026 年春节是哪天", "expect": [], "kind": "negative"}
+{"query": "帮我写一封道歉信", "expect": [], "kind": "negative"}
+{"query": "怎么做职业生涯规划", "expect": [], "kind": "negative"}
+{"query": "健身减脂食谱", "expect": [], "kind": "negative"}
+{"query": "帮我看看这张照片拍得怎么样", "expect": [], "kind": "negative"}

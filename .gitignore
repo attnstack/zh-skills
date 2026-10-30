@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+bench/results.json
+*.log
+.DS_Store
+Thumbs.db
+
+# 本地规划文档，不发布
+技术方案.md

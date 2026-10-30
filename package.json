@@ -1,0 +1,54 @@
+{
+  "name": "zh-skills",
+  "version": "0.1.0",
+  "description": "面向中文场景的 Agent Skills 包与安装 CLI：一条命令把 12 个中文工作流 skill 装进 Claude Code / Cursor 等 Agent，并提供零模型依赖的本地技能路由",
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "cursor",
+    "skills",
+    "chinese",
+    "cli",
+    "bm25",
+    "ai-agents",
+    "npx"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "zh-skills": "./dist/cli/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.js",
+  "files": [
+    "dist",
+    "skills",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "dev": "tsx src/cli/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "validate:skills": "tsx scripts/validate-skills.ts",
+    "bench": "tsx scripts/bench-router.ts",
+    "prepublishOnly": "npm run build && npm run validate:skills"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.11.0",
+    "citty": "^0.1.6",
+    "yaml": "^2.6.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
