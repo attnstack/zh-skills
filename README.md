@@ -1,5 +1,6 @@
 # zh-skills
 
+[![npm](https://img.shields.io/npm/v/zh-skills)](https://www.npmjs.com/package/zh-skills)
 [![stars](https://img.shields.io/github/stars/attnstack/zh-skills)](https://github.com/attnstack/zh-skills/stargazers)
 [![CI](https://github.com/attnstack/zh-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/attnstack/zh-skills/actions)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
@@ -10,18 +11,18 @@
 ## 实际运行效果
 
 ```text
-$ npx github:attnstack/zh-skills route "帮我写周报"
+$ npx zh-skills route "帮我写周报"
 zh-weekly-report  score=5.756
   matched: 写周 / 周报
 
-$ npx github:attnstack/zh-skills route "把这段话翻译成英文"
+$ npx zh-skills route "把这段话翻译成英文"
 「把这段话翻译成英文」没有命中任何 skill（可能是 query 与所有 description 无词面重叠，或全被负向惩罚压掉）。
 
-$ npx github:attnstack/zh-skills add zh-typography zh-weekly-report --agent claude-code --mode copy
+$ npx zh-skills add zh-typography zh-weekly-report --agent claude-code --mode copy
 ✓ claude-code: 2 个 skill 校验通过
 完成。共安装 2 个（平台 × skill）。Agent 新会话中生效。
 
-$ npx github:attnstack/zh-skills doctor
+$ npx zh-skills doctor
 ✓ Node >= 20 — 当前 24.13.0
 ✓ 内置 skills — 12 个
 ! symlink 能力 — symlink 不可用（EPERM…），将自动降级 junction/copy
@@ -34,16 +35,16 @@ $ npx github:attnstack/zh-skills doctor
 
 ```bash
 # 全部装到检测到的平台
-npx github:attnstack/zh-skills add --all
+npx zh-skills add --all
 
 # 只装一个，指定平台
-npx github:attnstack/zh-skills add zh-typography --agent claude-code
+npx zh-skills add zh-typography --agent claude-code
 
 # 环境体检
-npx github:attnstack/zh-skills doctor
+npx zh-skills doctor
 ```
 
-> 经 GitHub 安装首次要克隆和构建（一分钟左右）。之后在 Agent 里直接说「帮我写周报」「校对这段文档的排版」就能触发对应 skill。
+> npm 拉取，几秒到几十秒装完。不便走 npm 时也可以从 GitHub 直装：`npx github:attnstack/zh-skills add --all`（首次需克隆构建，约一分钟）。之后在 Agent 里直接说「帮我写周报」「校对这段文档的排版」就能触发对应 skill。
 
 ## 里面有什么
 

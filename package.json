@@ -1,6 +1,6 @@
 {
   "name": "zh-skills",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "面向中文场景的 Agent Skills 包与安装 CLI：一条命令把 12 个中文工作流 skill 装进 Claude Code / Cursor 等 Agent，并提供零模型依赖的本地技能路由",
   "keywords": [
     "agent-skills",
