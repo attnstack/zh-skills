@@ -19,7 +19,7 @@
     "node": ">=20"
   },
   "bin": {
-    "zh-skills": "./dist/cli/index.js"
+    "zh-skills": "dist/cli/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.js",
