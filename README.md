@@ -82,7 +82,7 @@ zh-tech-writing（技术方案）· zh-pr-description · zh-readme-gen · zh-api
 ## 测试
 
 ```bash
-npm test                 # 53 用例：单测 + 路由回归 + 端到端安装流
+npm test                 # 63 用例：单测 + 路由回归 + 端到端安装流 + 排版脚本行为
 npm run validate:skills  # skill 资产门禁：schema / 样例 / 脚本一致性
 npm run bench            # 命中率矩阵 + 延迟 + 上下文对比，写 bench/results.json
 ```

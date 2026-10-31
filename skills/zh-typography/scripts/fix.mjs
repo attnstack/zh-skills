@@ -56,8 +56,8 @@ function addSpacing(text) {
     .replace(new RegExp(`([A-Za-z0-9])(${CJK})`, "g"), "$1 $2");
 }
 
-function fixLine(line) {
-  let out = toHalfWidthLetters(line);
+function fixSegment(text) {
+  let out = toHalfWidthLetters(text);
   // 全角句点夹在半角数字之间是版本号/小数（v2．0 → v2.0），不是中文句号
   out = out.replace(/(\d)\uFF0E(\d)/g, "$1.$2");
   out = fixHalfWidthPunct(out);
@@ -65,9 +65,15 @@ function fixLine(line) {
   // 重复 ！/？ 压缩为单个：只压「全角开头」的重复组，
   // 这样混合的 ！! 会被归一，而纯英文语境的 !! 不受影响
   out = out.replace(/！[!！]*/g, "！").replace(/？[?？]*/g, "？");
-  // 行尾空白
-  out = out.replace(/[ \t]+$/, "");
   return out;
+}
+
+// 内联代码（反引号包裹）原样保留，只修复其余片段；
+// 行尾空白必须在整行拼回后再删，逐片段删会吞掉代码片段前的空格
+function fixLine(line) {
+  const parts = line.split(/(`[^`]*`)/);
+  const fixed = parts.map((part, i) => (i % 2 === 1 ? part : fixSegment(part))).join("");
+  return fixed.replace(/[ \t]+$/, "");
 }
 
 const raw = await new Promise((resolve, reject) => {
@@ -82,9 +88,17 @@ const raw = await new Promise((resolve, reject) => {
 // 否则 \r 会混进行内容让规则判定与输出不可移植
 const normalized = raw.replace(/\r\n/g, "\n");
 
+// 围栏代码块（``` 或 ~~~）整块原样输出，包括围栏行本身；未闭合的围栏视为到文末
+let inFence = false;
 process.stdout.write(
   normalized
     .split("\n")
-    .map(fixLine)
+    .map((line) => {
+      if (/^\s*(```|~~~)/.test(line)) {
+        inFence = !inFence;
+        return line;
+      }
+      return inFence ? line : fixLine(line);
+    })
     .join("\n"),
 );

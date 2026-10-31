@@ -51,7 +51,7 @@ describe("端到端安装流（claude-code adapter, copy 模式）", () => {
       // 4. manifest 记录了版本与落盘方式
       const manifest = readManifest(await adapter.skillsDir());
       expect(manifest.skills["zh-typography"]?.mode).toBe("copy");
-      expect(manifest.skills["zh-typography"]?.version).toBe("1.0.0");
+      expect(manifest.skills["zh-typography"]?.version).toBe(skill.meta.version);
 
       // 5. update：版本一致 → 无需重装（needsUpdate false 路径，通过 update 不抛错体现）
       //    直接构造版本差异场景：手工改 manifest 版本后 update 应重建
@@ -59,9 +59,9 @@ describe("端到端安装流（claude-code adapter, copy 模式）", () => {
       const { writeManifest } = await import("../../src/adapters/manifest.js");
       writeManifest(await adapter.skillsDir(), manifest);
       const { needsUpdate } = await import("../../src/adapters/base.js");
-      expect(needsUpdate(readManifest(await adapter.skillsDir()), "zh-typography", "1.0.0")).toBe(true);
+      expect(needsUpdate(readManifest(await adapter.skillsDir()), "zh-typography", skill.meta.version)).toBe(true);
       await adapter.install(skill.dir, skill.meta.name, "copy");
-      expect(readManifest(await adapter.skillsDir()).skills["zh-typography"]?.version).toBe("1.0.0");
+      expect(readManifest(await adapter.skillsDir()).skills["zh-typography"]?.version).toBe(skill.meta.version);
 
       // 6. remove：目录消失 + manifest 清理
       await adapter.remove("zh-typography");

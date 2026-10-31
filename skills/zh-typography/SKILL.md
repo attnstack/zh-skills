@@ -5,7 +5,7 @@ description: >
   当用户要求校对排版、修复中英混排格式、统一标点符号、检查全角半角时使用。
   不适用于：翻译润色、文风改写、错别字语义判断、纯英文文本。
 allowed-tools: [Read, Write, Bash]
-version: 1.0.0
+version: 1.0.1
 tags: [typography, chinese, formatting]
 ---
 
