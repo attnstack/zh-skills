@@ -21,6 +21,7 @@ export default defineCommand({
     mode: { type: "string", description: "落盘方式：auto（默认，按平台降级）/ symlink / junction / copy" },
     target: { type: "string", description: "自定义 skills 目录（与 --agent 互斥）" },
     all: { type: "boolean", description: "安装全部 skill" },
+    route: { type: "string", description: '按查询路由安装 Top-K，例如 --route "写周报"' },
     json: { type: "boolean", description: "JSON 输出" },
   },
   async run(ctx) {
@@ -31,12 +32,24 @@ export default defineCommand({
     const mode = parseMode(ctx.args.mode);
 
     let names = positionals(ctx.args._);
-    if (ctx.args.all === true) {
+    if (ctx.args.route !== undefined) {
+      // 按查询装 Top-K：把路由器接到安装器上，覆盖「我不知道有哪些，只知道我要干什么」的场景
+      if (names.length > 0) {
+        throw new UsageError('--route 与技能名参数互斥：二选一');
+      }
+      const { SkillRouter } = await import("../../router/index.js");
+      const result = new SkillRouter(skills).route(ctx.args.route, { topK: config.routeTopK });
+      names = result.items.map((i) => i.name);
+      if (names.length === 0) {
+        throw new UsageError(`查询「${ctx.args.route}」没有命中任何技能，换个说法或用 zh-skills list 查看`);
+      }
+      logger.info(`按路由安装：${names.join(", ")}`);
+    } else if (ctx.args.all === true) {
       names = skills.map((s) => s.meta.name);
     } else if (names.length === 0) {
       if (!process.stdin.isTTY) {
         throw new UsageError(
-          "未指定 skill。用法：zh-skills add <skill...> 或 zh-skills add --all（交互终端下可直接运行 zh-skills add 多选）",
+          "未指定 skill。用法：zh-skills add <skill...>、zh-skills add --all，或 zh-skills add --route \"<需求描述>\"",
         );
       }
       const picked = await promptSkillAndAgents(skills);

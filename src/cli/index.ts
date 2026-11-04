@@ -13,6 +13,8 @@ import remove from "./commands/remove.js";
 import route from "./commands/route.js";
 import doctor from "./commands/doctor.js";
 import learn from "./commands/learn.js";
+import lint from "./commands/lint.js";
+import feedback from "./commands/feedback.js";
 
 const main = defineCommand({
   meta: {
@@ -38,6 +40,8 @@ const main = defineCommand({
     route,
     doctor,
     learn,
+    lint,
+    feedback,
   },
 });
 

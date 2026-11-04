@@ -4,6 +4,14 @@ export { loadSkill, loadSkillDir, splitDescription, skillMetaSchema, SKILL_FILE 
 export type { Skill, SkillMeta } from "./core/skill.js";
 export { parseFrontmatter, FrontmatterError } from "./core/frontmatter.js";
 export { UsageError, EnvironmentError, ProgramError, exitCodeFor } from "./core/errors.js";
+export { validateSkillsRoot } from "./core/validate.js";
+export type { ValidationOptions, ValidationProblem, ValidationResult } from "./core/validate.js";
+export {
+  recordFeedback,
+  summarizeFeedback,
+  feedbackFilePath,
+} from "./core/feedback.js";
+export type { FeedbackEntry, FeedbackReport } from "./core/feedback.js";
 export { SkillRouter } from "./router/index.js";
 export type { RouteOptions, RouteResult, RoutedSkill } from "./router/index.js";
 export { tokenize, normalize } from "./router/tokenizer.js";

@@ -9,7 +9,7 @@ const skillsRoot = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "sk
 const skills = loadSkillDir(skillsRoot);
 const router = new SkillRouter(skills);
 
-describe("SkillRouter（基于真实 12 个 skill）", () => {
+describe("SkillRouter（基于真实技能集）", () => {
   it("正向 query 命中", () => {
     const { items } = router.route("帮我写周报");
     expect(items.length).toBeGreaterThan(0);
@@ -51,7 +51,8 @@ describe("SkillRouter（基于真实 12 个 skill）", () => {
     expect(items[0]?.matchedTerms.length).toBeGreaterThan(0);
   });
 
-  it("12 个 skill 全部入库", () => {
-    expect(router.size).toBe(12);
+  it("技能全部入库（与资产校验一致）", () => {
+    expect(router.size).toBe(skills.length);
+    expect(router.size).toBeGreaterThanOrEqual(14);
   });
 });

@@ -65,3 +65,9 @@
 {"query": "怎么做职业生涯规划", "expect": [], "kind": "negative"}
 {"query": "健身减脂食谱", "expect": [], "kind": "negative"}
 {"query": "帮我看看这张照片拍得怎么样", "expect": [], "kind": "negative"}
+{"query": "帮我写一份故障复盘报告", "expect": ["zh-postmortem"], "kind": "direct"}
+{"query": "线上事故复盘怎么写", "expect": ["zh-postmortem"], "kind": "indirect"}
+{"query": "这次 P0 故障需要出一份复盘文档", "expect": ["zh-postmortem"], "kind": "indirect"}
+{"query": "写一份采购服务器的请示", "expect": ["zh-gongwen"], "kind": "direct"}
+{"query": "帮我起草一份放假安排的内部通知", "expect": ["zh-gongwen"], "kind": "indirect"}
+{"query": "把今天的会议整理成纪要", "expect": ["zh-gongwen"], "kind": "indirect"}
